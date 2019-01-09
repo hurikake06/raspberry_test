@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```python:http.rb
+# coding:utf-8
 
-Things you may want to cover:
+import requests
+import json
 
-* Ruby version
+proxies = {
+  'http': 'http://proxy.tc.kawai-juku.ac.jp:3128/',
+  'https': 'http://proxy.tc.kawai-juku.ac.jp:3128/',
+}
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+api = 'http://HOST/api/raspberry/count/{user_id}'
+url = api.format(id=1)
+r = requests.get(url, proxies=proxies)
+data = json.loads(r.text)
+print(data["name"])
+```
