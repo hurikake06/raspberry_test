@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @qr.name %>
+</p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @qr.path %>
+</p>
+
+<%= link_to 'Edit', edit_qr_path(@qr) %> |
+<%= link_to 'Back', qrs_path %>

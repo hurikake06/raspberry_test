@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :qrs
   resources :pets
   resources :users
   namespace :api do
