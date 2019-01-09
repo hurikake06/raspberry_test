@@ -4,7 +4,20 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    require 'rqrcode'
+    require 'rqrcode_png'
+    require 'chunky_png' # to_data_urlはchunky_pngのメソッド
+
+    content = 'http://18.179.26.194:3000/api/raspberry/count/'
+    size    = 3           # 1..40
+    level   = :l            # l, m, q, h
+
     @users = User.all
+    @qr_base64 = {}
+    @users.each do |user|
+      qr = RQRCode::QRCode.new(content + user.id.to_s, size: size, level: level)
+      @qr_base64[user.id] = qr.to_img.resize(200, 200).to_data_url
+    end
   end
 
   # GET /users/1

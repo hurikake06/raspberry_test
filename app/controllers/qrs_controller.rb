@@ -10,6 +10,17 @@ class QrsController < ApplicationController
   # GET /qrs/1
   # GET /qrs/1.json
   def show
+    require 'rqrcode'
+    require 'rqrcode_png'
+    require 'chunky_png' # to_data_urlはchunky_pngのメソッド
+
+    content = 'Hello World'
+    size    = 3           # 1..40
+    level   = :h            # l, m, q, h
+
+    qr = RQRCode::QRCode.new(content, size: size, level: level)
+    # png変換->リサイズ->base64エンコード
+    @qr_base64 = qr.to_img.resize(200, 200).to_data_url
   end
 
   # GET /qrs/new
