@@ -26,3 +26,19 @@ User.create(
   id: 5,
   name: "五郎"
 )
+
+Pet.create(
+  id: 1,
+  user_id: 1,
+  name: "コタツ"
+)
+Pet.create(
+  id: 2,
+  user_id: 1,
+  name: "タマRX"
+)
+Pet.create(
+  id: 3,
+  user_id: 2,
+  name: "モロ"
+)
