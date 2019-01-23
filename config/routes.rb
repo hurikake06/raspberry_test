@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :raspberry do
-      get ':user_id/:pet_id', action: :create_share
       get 'count/:user_id', action: :count
+      get ':user_id/:pet_id', action: :create_share
     end
   end
 end

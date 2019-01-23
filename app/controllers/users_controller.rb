@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     require 'rqrcode_png'
     require 'chunky_png' # to_data_urlはchunky_pngのメソッド
 
-    content = 'http://18.179.26.194:3000/api/raspberry/count/'
+    content = 'http://52.192.93.221:3000/api/raspberry/count/'
     size    = 3           # 1..40
     level   = :l            # l, m, q, h
 

@@ -4,7 +4,7 @@ class Api::RaspberryController < ApplicationController
     render json:share
   end
   def count
-    user = User.find(paramth[:user_id])
+    user = User.find(params[:user_id])
     user.count = user.count + 1
     user.save
     render json: user
